@@ -38,7 +38,7 @@ class Like(models.Model):
 
 
 class ImageComment(models.Model):
-    image = models.ForeignKey(Image, on_delete=models.CASCADE, related_name='img_comment')# do poprawy
+    image = models.ForeignKey(Image, on_delete=models.CASCADE, related_name='img_comment')
     created = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     text = models.TextField()
