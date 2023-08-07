@@ -21,6 +21,7 @@ class Image(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     image_url = models.ImageField(upload_to='images/')
     slug = models.SlugField(max_length=200, blank=True)
+    genre = models.ForeignKey(Genre, on_delete=models.CASCADE, blank=True)
 
     def __str__(self):
         return self.title
@@ -29,3 +30,15 @@ class Image(models.Model):
         if not self.slug:
             self.slug = slugify(self.title + str(self.created))
         super().save(*args, **kwargs)
+
+
+class Like(models.Model):
+    image = models.ForeignKey(Image, on_delete=models.CASCADE, related_name='img_like')
+    username = models.ForeignKey(User, on_delete=models.CASCADE)
+
+
+class ImageComment(models.Model):
+    image = models.ForeignKey(Image, on_delete=models.CASCADE, related_name='img_comment')# do poprawy
+    created = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    text = models.TextField()
