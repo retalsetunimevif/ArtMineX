@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Accounts',
     'ArtMineX',
+    'thumbnails',
 ]
 
 MIDDLEWARE = [
@@ -131,5 +132,28 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
+THUMBNAILS = {
+    'METADATA': {
+        'BACKEND': 'thumbnails.backends.metadata.DatabaseBackend',
+    },
+    # 'STORAGE': {
+    #     'BACKEND': 'django.core.files.storage.FileSystemStorage',
+    #     # You can also use Amazon S3 or any other Django storage backends
+    # },
+    'SIZES': {
+        'small': {
+            'PROCESSORS': [
+                {'PATH': 'thumbnails.processors.crop', 'width': 200, 'height': 200}
+            ],
+            'POST_PROCESSORS': [
+                {
+                    'PATH': 'thumbnails.post_processors.optimize',
+                    'png_command': 'optipng -force -o7 "%(filename)s"',
+                    'jpg_command': 'jpegoptim -f --strip-all "%(filename)s"',
+                },
+            ],
+        },
+    }
+}
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

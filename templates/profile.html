@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="main-container">
+        <div class="left-section">
+            <div class="upper-left">
+                    <div class="info-section">
+                        {% load static %}
+                        <div class="image-box"><img src="{% static 'avatar.jpg' %}"></div>
+                        <p>user name: {{ user_visited }}</p>
+                        <p>email: {{ user_visited.email }}</p>
+                        {% if user_visited.first_name and user_visited.last_name %}
+                            <p>Name: {{ user_visited.first_name }} {{ user_visited.last_name }}</p>
+                        {% else %}
+                            <p>Name: noname</p>
+                        {% endif %}
+                        <p>last seen: {{ user_visited.last_login }}</p>
+                        {% if access_to_edit %}
+                            <a href="{% url 'update-profile' %}">Edit</a>
+                        {% endif %}
+                    </div>
+            </div>
+            <div class="lower-left">
+            {#    for comments view here     #}
+            </div>
+        </div>
+        <div class="right-section">
+            {% with images=last_images %}
+                    {% include 'images.html' %}
+            {% endwith %}
+            {% with images=top_3_images %}
+                    {% include 'images.html' %}
+            {% endwith %}
+        </div>
+    </div>
+{% endblock %}

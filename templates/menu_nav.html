@@ -1,0 +1,24 @@
+<div class="logo links">
+    <a href="{% url 'start' %}">
+    ArtMineX</a>
+</div>
+<div class="links">
+    <a href="#">ARTICLES</a>
+    <a href="#">GALERY</a>
+    <a href="#">GROUPS</a>
+    <a href="#">USERS</a>
+
+</div>
+<div class="user-info">
+    {% if user.is_authenticated %}
+        <span>Welcome, <a class="user-action" href="{% url 'profile' user %}">{{ user }}</a>!</span> <!-- Tutaj możesz wstawiać informacje o użytkowniku -->
+        <span class="separator">|</span>
+        <a class="user-action" href="{% url 'add-image' %}?next={% url 'profile' user %}">add image</a>
+        <span class="separator">|</span>
+        <a class="user-action" href="{% url 'logout' %}">Logout</a> <!-- Możesz też zastąpić linkiem do wylogowania -->
+    {% else %}
+        <a class="user-action" href="{% url 'login' %}">Zaloguj</a>
+        <span class="separator">|</span>
+        <a class="user-action" href="{% url 'add-user' %}">Zarejestruj</a>
+    {% endif %}
+</div>

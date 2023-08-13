@@ -1,0 +1,407 @@
+/* Resetowanie podstawowych styli */
+body, h1, h2, h3, p {
+    margin: 3px;
+    padding: 0;
+}
+
+/* Globalne style */
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Header */
+header {
+    background-color: #333;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Cień */
+    position: fixed; /* Ustala pozycję */
+    top: 0; /* Na górze ekranu */
+    left: 0; /* Od lewej krawędzi */
+    width: 100%; /* Szerokość pełna */
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+.links {
+    display: flex;
+    justify-content: center;
+}
+.links a {
+    color: #ccc;
+    text-decoration: none;
+    margin-right: 15px;
+    font-weight: bold;
+}
+
+
+.user-info {
+    text-align: right;
+    margin-right: 30px;
+}
+
+.user-action {
+    color: #ccc;
+    text-decoration: none;
+    margin-right: 1px;
+    margin-left: 1px;
+}
+.user-info a {
+    color: gold;
+    text-decoration: none;
+}
+.separator {
+    margin: 0 5px; /* Dodany margines między separatorami */
+    color: #ccc; /* Kolor separatora */
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #ccc;
+    text-align: center;
+    border: #000 solid 1px;
+    padding: 10px;
+    position: fixed; /* Ustala pozycję */
+    left: 0; /* Od lewej krawędzi */
+    bottom: 0; /* Na dole ekranu */
+    width: 100%; /* Szerokość pełna */
+}
+body {
+    background-color: #222;
+    color: #ccc;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 80%;
+    margin: 50px auto 50px;
+    padding: 20px;
+
+}
+
+/* Content */
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Minimalna wysokość na całą wysokość okna przeglądarki */
+}
+
+.image-list {
+    margin-top: 20px;
+    background-color: #333; /* Kolor tła */
+    border: 1px solid #555; /* Obramowanie */
+    border-radius: 5px; /* Zaokrąglenie rogów */
+    padding: 10px; /* Wewnętrzny odstęp */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Cień */
+
+}
+
+.image-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.image-box {
+    width: 150px;
+    margin: 10px;
+    text-align: center;
+    padding: 15px; /* Dodanie wewnętrznego odstępu */
+    background-color: #444; /* Kolor tła */
+    border: 1px solid #666; /* Obramowanie */
+    border-radius: 5px; /* Zaokrąglenie rogów */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Cień */
+}
+
+.image-box img {
+    width: 100%;
+    height: auto;
+}
+
+.image-list h2,
+.image-box h3 {
+    color: #ccc;
+}
+
+.image-box a {
+    color: #ffc107; /* Żółty kolor */
+    text-decoration: none; /* Brak podkreślenia */
+    transition: color 0.3s ease-in-out; /* Płynne przejście koloru */
+}
+
+.image-box a:hover {
+    color: #ff9800; /* Inny kolor po najechaniu */
+}
+
+
+.image-layout {
+    display: flex;
+    margin: 20px 0;
+    align-items: flex-start; /* Wyśrodkowanie elementów do góry */
+    background-color: #333; /* Kolor tła */
+    border: 1px solid #555; /* Obramowanie */
+    border-radius: 5px; /* Zaokrąglenie rogów */
+    padding: 10px; /* Wewnętrzny odstęp */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Cień */
+}
+
+.image-section {
+    flex: 1;
+}
+
+.image {
+    height: 100%;
+    width: 90%;
+    object-fit: fill;
+}
+
+.info-comment-section {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding-left: 20px; /* Dodatkowy padding z lewej strony */
+}
+
+.info-section {
+    color: #ccc;
+    background-color: #333; /* Kolor tła */
+    border: 1px solid #555; /* Obramowanie */
+    border-radius: 5px; /* Zaokrąglenie rogów */
+    padding: 10px; /* Wewnętrzny odstęp */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Cień */
+}
+.info-section h2 {
+    margin-top: 0;
+}
+.info-section a {
+    color: #ffc107; /* Żółty kolor */
+    text-decoration: none; /* Brak podkreślenia */
+    transition: color 0.3s ease-in-out; /* Płynne przejście koloru */
+}
+.info-section a:hover {
+    color: #ff9800; /* Inny kolor po najechaniu */
+}
+
+
+.image-layout h2 {
+    margin-top: 0;
+}
+
+.comment-section {
+    padding: 20px;
+    background-color: #333; /* Kolor tła */
+    border: 1px solid #555; /* Obramowanie */
+    border-radius: 5px; /* Zaokrąglenie rogów */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Cień */
+}
+.comment-section a {
+    color: #ffc107; /* Żółty kolor */
+    text-decoration: none; /* Brak podkreślenia */
+    transition: color 0.3s ease-in-out; /* Płynne przejście koloru */
+}
+.comment-section a:hover {
+    color: #ff9800; /* Inny kolor po najechaniu */
+}
+
+.comment-box {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #444; /* Kolor tła */
+    border: 1px solid #666; /* Obramowanie */
+    border-radius: 5px; /* Zaokrąglenie rogów */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Cień */
+}
+.comment-form p{
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #444; /* Kolor tła */
+    border: 1px solid #666; /* Obramowanie */
+    border-radius: 5px; /* Zaokrąglenie rogów */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Cień */
+}
+.comment-form input,
+.info-section input {
+    display: block;
+    margin: 20px auto;
+    text-decoration: none;
+    background: #d4a006;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.comment-form input:hover,
+.info-section input:hover {
+    background: #bf7f00; /* Zmiana koloru po najechaniu */
+}
+
+.comment-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.comment-date {
+    color: aquamarine;
+}
+
+.comment-user i {
+    color: gold;
+}
+
+.comment-text {
+    color: aliceblue;
+    word-wrap: break-word;
+}
+.return-link {
+    display: block;
+    margin: 20px auto;
+    text-decoration: none;
+    background: #d4a006;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    transition: color 0.3s ease-in-out;
+}
+.return-link:hover {
+    background: #bf7f00;
+}
+
+.image-box-custom {
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    background-color: #444;
+    border: 1px solid #666;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.image-box-custom img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.left-section {
+    flex: 1;
+    width: 65% !important; /* Zmieniona szerokość na 65% */
+    display: flex;
+    flex-direction: column;
+}
+
+.upper-left {
+    margin-bottom: 2px;
+}
+
+.right-section {
+    flex: 1;
+    width: 35% !important; /* Zmieniona szerokość na 35% */
+    padding-left: 20px; /* Odstęp od lewej strony */
+}
+
+.lower-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Ostylowanie formularza */
+.form {
+    width: 400px;
+    list-style: none;
+    background-color: #444;
+    border: 1px solid #666;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+.form li {
+    margin-bottom: 10px;
+}
+
+
+.form input[type="text"],
+.form textarea,
+.form input[type="password"],
+.form input[type="email"]{
+    display: block;
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #666;
+    border-radius: 5px;
+    background-color: #333;
+    color: #ccc;
+}
+
+.form input[type="text"]:focus,
+.form input[type="password"]:focus,
+.form textarea:focus,
+.form input[type="email"]:focus {
+    outline: none;
+    border-color: #ffc107; /* Zmiana koloru obramowania po fokusie */
+}
+
+.form select {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #666;
+    border-radius: 5px;
+    background-color: #333;
+    color: #ccc;
+}
+
+.form input[type="submit"]
+{
+    display: block;
+    margin: 20px auto;
+    text-decoration: none;
+    background: #d4a006;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.form input[type="submit"]:hover {
+    background: #bf7f00;
+}
+
+
+.form input[type="file"] {
+    text-decoration: none;
+    background: #d4a006;
+    border-radius: 5px;
+    color: black;
+}

@@ -3,3 +3,12 @@ Django==4.2.3
 Pillow==10.0.0
 sqlparse==0.4.4
 typing_extensions==4.7.1
+asgiref==3.7.2
+da-vinci==0.4.0
+Django==4.2.4
+django-thumbnails==0.7.0
+Pillow==10.0.0
+psycopg2-binary==2.9.7
+shortuuid==1.0.11
+sqlparse==0.4.4
+typing_extensions==4.7.1

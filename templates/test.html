@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{{ object_list }}
+{% for user in object_list %}
+    <p>{{ user }}</p>
+    <p>{{ user.email }}</p>
+    <p>{{ user.is_active }}</p>
+{% endfor %}
+<p>{{ page_obj }}</p>
+<p>{{ user_list }}</p>
+<p>{{ is_paginated }}</p>
+<p>{{ page_obj.has_next }}</p>
+<p>{{ page_obj.has_previous }}</p>
+<p>{{ page_obj.number }}</p>
+{% if page_obj.has_next %}
+    <a>next <a href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a></a></p>
+{% endif %}
+{% if page_obj.has_previous %}
+    <p>previous <a href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a></p>
+{% endif %}
+
+</body>
+</html>
