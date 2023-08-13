@@ -15,9 +15,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path, include
+from ArtMineX import views
+from ArtMineX import forms_view
 
 
 
 urlpatterns = [
-
+    path('', views.Start.as_view(), name='start'),
+    path('add-image/', forms_view.AddImageFormView.as_view(), name='add-image'),
+    path('add-genre/', forms_view.AddGenreFormView.as_view(), name='add-genre'),
+    path('image/<slug:slug>', views.ImageView.as_view(), name='image'),
 ]

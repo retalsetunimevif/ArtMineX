@@ -1,25 +1,23 @@
 from django import forms
-
 from ArtMineX.models import Genre, Image, ImageComment
 
 
-class FormGenre(forms.ModelForm):
+class GenreForm(forms.ModelForm):
 
     class Meta:
-        name = Genre
+        model = Genre
         fields = '__all__'
 
 
-class FormImage(forms.ModelForm):
+class ImageForm(forms.ModelForm):
+    class Meta:
+        model = Image
+        fields = ['title', 'description', 'genre', 'image']
+
+
+class ImageCommentForm(forms.ModelForm):
 
     class Meta:
-        name = Image
-        fields = ['title', 'description']
-
-
-class FormImageComment(forms.ModelForm):
-
-    class Meta:
-        name = ImageComment
+        model = ImageComment
         fields = ['text']
-        labels = {'text': "Komentarz"}
+        labels = {'text': "Comment"}

@@ -1,0 +1,14 @@
+    <div class="image-list">
+        <h2>{{ images.1 }}</h2>
+        <div class="image-row">
+            {% for image in images.0 %}
+                <div class="image-box">
+                    <a href="{% url 'image' image.slug %}">
+                        <img src="{{ image.image.thumbnails.small.url }}" alt="Image {{ image }}">
+                        <h3>Title {{ image.title }}</h3>
+                        <p>User {{ image.user }}</p>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>

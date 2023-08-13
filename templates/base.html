@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}" type="text/css">
+
+</head>
+<body>
+<header>
+    {% block menu %}
+        {% include 'menu_nav.html' %}
+    {% endblock %}
+</header>
+<div class="container">
+    {% block content %}
+
+    {% endblock %}
+</div>
+
+<footer>
+<div>
+<p>created by Marcin</p>
+</div>
+</footer>
+</body>
+</html>
+

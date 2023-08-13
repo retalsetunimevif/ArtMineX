@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="content">
+        {#  Last added  #}
+        {% with images=last_images %}
+            {% include 'images.html' %}
+        {% endwith %}
+        {# Top of the Top #}
+        {% with images=top_of_the_top %}
+            {% include 'images.html' %}
+        {% endwith %}
+    </div>
+{% endblock %}
+
