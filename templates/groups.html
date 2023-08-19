@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div>
+        {% if user.is_authenticated %}
+            <div class="form">
+                <h2>Create a New Group</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" value="Create Group">
+                </form>
+            </div>
+        {% endif %}
+    <br />
+        <div class="group-list">
+            <div class="sorting-buttons">
+                <button>Sort by Name</button>
+                <button>Sort by Date Added</button>
+                <button>Sort by Date Added</button>
+            </div>
+            <ul class="group-items">
+                {% for group in groups %}
+                    <li class="image-box"><a href="{% url 'group' group.name %}" >{{ group.name }}</a></li>
+                {% endfor %}
+            </ul>
+            <div class="pagination">
+                <!-- Pagination links here -->
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -349,7 +349,8 @@ body {
 .form input[type="text"],
 .form textarea,
 .form input[type="password"],
-.form input[type="email"]{
+.form input[type="email"],
+.form select {
     display: block;
     width: 90%;
     padding: 10px;
@@ -363,7 +364,8 @@ body {
 .form input[type="text"]:focus,
 .form input[type="password"]:focus,
 .form textarea:focus,
-.form input[type="email"]:focus {
+.form input[type="email"]:focus,
+.form select:focus {
     outline: none;
     border-color: #ffc107; /* Zmiana koloru obramowania po fokusie */
 }
@@ -405,3 +407,77 @@ body {
     border-radius: 5px;
     color: black;
 }
+
+.create-group {
+    width: 40%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin-right: 20px;
+}
+.main-container2 {
+    display: flex;
+    justify-content: space-between;
+}
+.create-group {
+    width: 40%;
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin-right: 20px;
+}
+
+.group-list {
+    width: 90%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sorting-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.sorting-buttons button {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.group-list ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.group-list ul li {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.pagination {
+    margin-top: 20px;
+}
+
+.group-items {
+    flex-wrap: wrap;
+}
+
+.user-name-button {
+    width: 20%;
+    margin: 10px;
+    text-align: center;
+    padding: 15px; /* Dodanie wewnętrznego odstępu */
+    background-color: #444; /* Kolor tła */
+    border: 1px solid #666; /* Obramowanie */
+    border-radius: 5px; /* Zaokrąglenie rogów */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Cień */
+}
+.user-name-button a {
+    color: #ffc107; /* Żółty kolor */
+    text-decoration: none; /* Brak podkreślenia */
+    transition: color 0.3s ease-in-out; /* Płynne przejście koloru */
+}
+.admin {
+    background-color: #af6700;
+}
+/* Reszta stylizacji według potrzeb */

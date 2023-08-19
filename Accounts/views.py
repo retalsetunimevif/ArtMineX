@@ -1,11 +1,9 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
-from django.core.paginator import Paginator
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views import View
-from django.views.generic import DetailView, ListView
 
 from Accounts.forms import LoginForm, AddUserForm
 from ArtMineX.models import Image
@@ -65,10 +63,14 @@ class UserProfileView(View):
             access_to_edit = True
         last_images = Image.objects.filter(user=username.id).order_by('-created')[:6]
         top_3_images = Image.objects.filter(user=username.id).order_by('-like')[:3]
+        username_as_groups_admin = username.admin_groups.all()
+        username_as_group_member = username.member_groups.all()
         return render(request, 'profile.html', {'user_visited': username,
                                                 'last_images': [last_images, 'last added'],
                                                 'top_3_images': [top_3_images, 'top 3 images'],
-                                                'access_to_edit': access_to_edit})
+                                                'access_to_edit': access_to_edit,
+                                                'username_as_groups_admin': [username_as_groups_admin, 'Groups admin'],
+                                                'username_as_group_member': [username_as_group_member, 'Groups member'],})
 
 
 class EditProfileView(LoginRequiredMixin, View):

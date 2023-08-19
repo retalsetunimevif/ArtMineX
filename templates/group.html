@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="main-container">
+        <div class="left-section">
+            <div class="upper-left">
+                    <div class="info-section">
+                        <p>Group name: {{ group }}</p>
+                        <p>Admin: {{ group.admin }}</p>
+                        <p>Number of users: {{ members.count }}</p>
+                    </div>
+            </div>
+            <div class="lower-left">
+                {% if user == group.admin %}
+                <div class="info-section">
+                        <p>Users waiting in queue to be accepted {{ pending_users.count }}</p>
+                        <div class="pending-users">
+                            {% for pending_user in pending_users %}
+                                <form method="POST">
+                                {% csrf_token %}
+                                    <p>User: <a href="{% url 'profile' pending_user %}">{{ pending_user }}</a>
+                                        <input type="hidden" name="pending_user" value="{{ pending_user.id }}">
+                                        <button name="accept">Accpet</button>
+                                        <button name="reject">Reject</button>
+                                    </p>
+                                </form>
+                            {% endfor %}
+                        </div>
+                </div>
+                {% endif %}
+                {% if user.is_authenticated and not user == group.admin%}
+                    {% if user not in pending_users and user not in members%}
+                        <form method="POST">
+                        {% csrf_token %}
+                            <div class="info-section">
+                                <p><button name="join">Join</button></p>
+                            </div>
+                        </form>
+                    {% elif user in pending_users %}
+                        <div class="info-section">
+                            <p>You have to wait for admin approval</p>
+                        </div>
+                    {% endif %}
+                {% endif %}
+                <div class="info-section">
+                    <div class="group-list">
+                        <h3>Members</h3>
+                        <ul class="group-items">
+                            {% for member in members %}
+
+                                {% if member == group.admin %}
+                                <li class="user-name-button admin"><a href="{% url 'profile' member %}" >{{ member }}</a></li>
+                                {% else %}
+                                <li class="user-name-button"><a href="{% url 'profile' member %}" >{{ member }}</a></li>
+                                {% endif %}
+                            {% empty %}
+                                <p>No members in {{ group }}. Group are empty</p>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="right-section">
+        {% if last_images.0 or top_3_images.0 %}
+            {% with images=last_images %}
+                    {% include 'images.html' %}
+            {% endwith %}
+            {% with images=top_3_images %}
+                    {% include 'images.html' %}
+            {% endwith %}
+        {% endif %}
+        </div>
+    </div>
+{% endblock %}
