@@ -4,6 +4,14 @@
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_ul }}
+            {% if groups_of_logged_user %}
+                <label>Select Groups</label>
+                <select name="selected_groups" multiple>
+                {% for group in groups_of_logged_user %}
+                    <option value="{{ group.id }}">{{ group }}</option>
+                {% endfor %}
+                </select>
+            {% endif %}
             <input type="submit" value="Submit">
         </form>
         {% if list %}

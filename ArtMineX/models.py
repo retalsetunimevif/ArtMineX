@@ -49,6 +49,7 @@ class Like(models.Model):
     class Meta:
         unique_together = ['image', 'username']
 
+
 class ImageComment(models.Model):
     image = models.ForeignKey(Image, on_delete=models.CASCADE, related_name='img_comment')
     created = models.DateTimeField(auto_now_add=True)
@@ -59,7 +60,28 @@ class ImageComment(models.Model):
 class Group(models.Model):
     name = models.CharField(max_length=128, unique=True)
     admin = models.ForeignKey(User, on_delete=models.CASCADE, related_name='admin_groups')
+    created = models.DateTimeField(auto_now_add=True)
     members = models.ManyToManyField(User, blank=True, related_name='member_groups')
-    pending_user = models.ManyToManyField(User, blank=True, related_name='pending_groups')
+    pending_users = models.ManyToManyField(User, blank=True, related_name='pending_groups')
     image = models.ManyToManyField(Image, related_name='image_groups')
+
+    def __str__(self):
+        return self.name
+
+    def save(self):
+        super().save()
+        self.members.add(self.admin)
+
+    # function for admin of group
+    def accept_pending_user(self, user):
+        if user in self.pending_users.all():
+            # adding user to member_groups
+            self.members.add(user)
+            # remove user from pending_groups
+            self.pending_users.remove(user)
+
+    def reject_pending_user(self, user):
+        if user in self.pending_users.all():
+            # remove user from pending_groups
+            self.pending_users.remove(user)
 

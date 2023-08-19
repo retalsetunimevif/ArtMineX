@@ -1,0 +1,12 @@
+    <div class="image-list">
+        <h2>{{ groups.1 }}</h2>
+        <div class="image-row">
+            {% for group in groups.0 %}
+                <div class="image-box">
+                    <a href="{% url 'group' group %}">
+                        <h3>{{ group }}</h3>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>

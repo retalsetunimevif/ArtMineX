@@ -30,6 +30,12 @@
             {% with images=top_3_images %}
                     {% include 'images.html' %}
             {% endwith %}
+            {% with groups=username_as_groups_admin %}
+                {% include 'profile_groups.html' %}
+            {% endwith %}
+            {% with groups=username_as_group_member %}
+                {% include 'profile_groups.html' %}
+            {% endwith %}
         </div>
     </div>
 {% endblock %}

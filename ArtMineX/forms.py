@@ -1,5 +1,7 @@
 from django import forms
-from ArtMineX.models import Genre, Image, ImageComment
+from django.contrib.auth.models import User
+
+from ArtMineX.models import Genre, Image, ImageComment, Group
 
 
 class GenreForm(forms.ModelForm):
@@ -10,6 +12,7 @@ class GenreForm(forms.ModelForm):
 
 
 class ImageForm(forms.ModelForm):
+
     class Meta:
         model = Image
         fields = ['title', 'description', 'genre', 'image']
@@ -21,3 +24,10 @@ class ImageCommentForm(forms.ModelForm):
         model = ImageComment
         fields = ['text']
         labels = {'text': "Comment"}
+
+
+class GroupForm(forms.ModelForm):
+
+    class Meta:
+        model = Group
+        fields = ['name']

@@ -24,5 +24,8 @@ urlpatterns = [
     path('', views.Start.as_view(), name='start'),
     path('add-image/', forms_view.AddImageFormView.as_view(), name='add-image'),
     path('add-genre/', forms_view.AddGenreFormView.as_view(), name='add-genre'),
-    path('image/<slug:slug>', views.ImageView.as_view(), name='image'),
+    path('image/<slug:slug>/', views.ImageView.as_view(), name='image'),
+    path('gallery/', views.GalleryView.as_view(), name='gallery'),
+    path('groups/', views.GroupsFormView.as_view(), name='groups'),
+    path('group/<group_name>/', views.GroupView.as_view(), name='group'),
 ]
