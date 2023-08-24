@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'Accounts',
     'ArtMineX',
     'thumbnails',
+    'PIL',
 ]
 
 MIDDLEWARE = [

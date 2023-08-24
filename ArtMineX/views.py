@@ -123,3 +123,8 @@ class GroupView(View):
             user_want_join = User.objects.get(pk=request.user.id)
             group.pending_users.add(user_want_join)
         return redirect('group', group_name=group_name)
+
+class PageDoesNotExist(View):
+    def get(self, request):
+        return render(request, '404.html',
+                      {'message': 'This page does not exist'})

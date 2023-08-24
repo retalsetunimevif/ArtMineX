@@ -28,4 +28,5 @@ urlpatterns = [
     path('gallery/', views.GalleryView.as_view(), name='gallery'),
     path('groups/', views.GroupsFormView.as_view(), name='groups'),
     path('group/<group_name>/', views.GroupView.as_view(), name='group'),
+    path('does-not-exist/', views.PageDoesNotExist.as_view(), name='404')
 ]

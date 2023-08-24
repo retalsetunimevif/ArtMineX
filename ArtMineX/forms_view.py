@@ -32,12 +32,12 @@ class AddImageFormView(LoginRequiredMixin,View):
                     group.image.add(image)
                     group.save()
             url = 'start'
-            if request.GET['next']:
-                url = request.GET.get('next', 'start')
+            if 'next' in request.GET:
+                url = request.GET.get('next')
             return redirect(url)
         return render(request, 'forms.html', {'form': form_image})
 
-class AddGenreFormView(View):
+class AddGenreFormView(LoginRequiredMixin, View):
     def get(self, request):
         genre_list = Genre.objects.all()
         form_genre = GenreForm()
