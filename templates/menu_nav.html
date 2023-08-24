@@ -10,11 +10,11 @@
 </div>
 <div class="user-info">
     {% if user.is_authenticated %}
-        <span>Welcome, <a class="user-action" href="{% url 'profile' user %}">{{ user }}</a>!</span> <!-- Tutaj możesz wstawiać informacje o użytkowniku -->
+        <span>Welcome, <a class="user-action" href="{% url 'profile' user %}">{{ user }}</a>!</span>
         <span class="separator">|</span>
         <a class="user-action" href="{% url 'add-image' %}?next={% url 'profile' user %}">add image</a>
         <span class="separator">|</span>
-        <a class="user-action" href="{% url 'logout' %}">Logout</a> <!-- Możesz też zastąpić linkiem do wylogowania -->
+        <a class="user-action" href="{% url 'logout' %}">Logout</a>
     {% else %}
         <a class="user-action" href="{% url 'login' %}">Zaloguj</a>
         <span class="separator">|</span>
