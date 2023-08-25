@@ -78,11 +78,3 @@ class UserProfileView(View):
         except User.DoesNotExist:
             return redirect('404')
 
-class EditProfileView(LoginRequiredMixin, View):
-
-    def get(self, request, username):
-        if request.user == User.objects.get(username=username):
-
-            return HttpResponse(f'udało się{request.user == User.objects.get(username=username)}')
-        else:
-            return HttpResponse(f'nie udało się zalogowany "{request.user}", do edycji "{User.objects.get(username=username)}", {request.user == User.objects.get(username=username)}')

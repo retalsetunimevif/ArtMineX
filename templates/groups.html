@@ -13,19 +13,21 @@
         {% endif %}
     <br />
         <div class="group-list">
-            <div class="sorting-buttons">
-                <button>Sort by Name</button>
-                <button>Sort by Date Added</button>
-                <button>Sort by Date Added</button>
-            </div>
+        {# buttons unlock in future #}
+{#            <div class="sorting-buttons">#}
+{#                <button>Sort by Name</button>#}
+{#                <button>Sort by Date Added</button>#}
+{#                <button>Sort by Date Added</button>#}
+{#            </div>#}
+            <h2>Groups</h2>
             <ul class="group-items">
                 {% for group in groups %}
                     <li class="image-box"><a href="{% url 'group' group.name %}" >{{ group.name }}</a></li>
                 {% endfor %}
             </ul>
-            <div class="pagination">
-                <!-- Pagination links here -->
-            </div>
+{#            <div class="pagination">#}
+{#                <!-- Pagination links here -->#}
+{#            </div>#}
         </div>
     </div>
 {% endblock %}

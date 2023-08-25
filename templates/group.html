@@ -17,11 +17,10 @@
                             {% for pending_user in pending_users %}
                                 <form method="POST">
                                 {% csrf_token %}
-                                    <p>User: <a href="{% url 'profile' pending_user %}">{{ pending_user }}</a>
-                                        <input type="hidden" name="pending_user" value="{{ pending_user.id }}">
-                                        <button name="accept">Accpet</button>
-                                        <button name="reject">Reject</button>
-                                    </p>
+                                    User: <a href="{% url 'profile' pending_user %}">{{ pending_user }}</a>
+                                    <input type="hidden" name="pending_user" value="{{ pending_user.id }}">
+                                    <input type="submit" name="accept" value="Accept" />
+                                    <input type="submit" name="reject" value="Reject" />
                                 </form>
                             {% endfor %}
                         </div>
@@ -32,7 +31,7 @@
                         <form method="POST">
                         {% csrf_token %}
                             <div class="info-section">
-                                <p><button name="join">Join</button></p>
+                                <input type="submit" name="join" value="Join"/>
                             </div>
                         </form>
                     {% elif user in pending_users %}
