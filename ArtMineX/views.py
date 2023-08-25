@@ -83,14 +83,17 @@ class GroupsFormView(View):
                        'form': form_group})
 
     def post(self, request):
-
+        groups = Group.objects.all()
         form_group = GroupForm(request.POST)
         if form_group.is_valid():
             group = form_group.save(commit=False)
             admin = request.user
             group.admin = admin
             group.save()
-        return redirect('groups')
+            return redirect('groups')
+        return render(request, 'groups.html',
+                      {'groups': groups,
+                       'form': form_group})
 
 
 class GroupView(View):
@@ -111,12 +114,11 @@ class GroupView(View):
 
     def post(self, request, group_name):
         group = Group.objects.get(name=group_name)
-        members = group.members.all()
-        pending_users = group.pending_users.all()
+        print(request.POST)
         if 'accept' in request.POST:
             pending_user = User.objects.get(pk=request.POST.get('pending_user'))
             group.accept_pending_user(user=pending_user)
-        if 'reject' in request.POST:
+        elif 'reject' in request.POST:
             pending_user = User.objects.get(pk=request.POST.get('pending_user'))
             group.reject_pending_user(user=pending_user)
         if 'join' in request.POST:

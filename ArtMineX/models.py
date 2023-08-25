@@ -8,7 +8,7 @@ from thumbnails.fields import ImageField
 # Create your models here.
 
 class Genre(models.Model):
-
+    """Model: Represents a genre with a name field."""
     genre = models.CharField(max_length=64)
 
     def __str__(self):
@@ -16,6 +16,7 @@ class Genre(models.Model):
 
 
 class Image(models.Model):
+    """Model representing images uploaded by users."""
     title = models.CharField(max_length=128)
     description = models.TextField()
     like = models.IntegerField(default=0)
@@ -30,27 +31,34 @@ class Image(models.Model):
         return self.title
 
     def save(self, *args, **kwargs):
+        """Function to save the image along with
+         its corresponding slug based on the date of creation."""
         if not self.slug:
             self.slug = slugify(self.title + str(self.publish))
         super().save(*args, **kwargs)
 
     def increment_like(self):
+        """Method to increment the 'like' count for the associated image."""
         self.like += 1
         self.save()
 
     def decrease_like(self):
+        """Method to decrease the 'like' count for the associated image."""
         self.like -= 1
         self.save()
 
 
 class Like(models.Model):
+    """Model representing likes given to images."""
     image = models.ForeignKey(Image, on_delete=models.CASCADE, related_name='img_like')
     username = models.ForeignKey(User, on_delete=models.CASCADE)
+
     class Meta:
         unique_together = ['image', 'username']
 
 
 class ImageComment(models.Model):
+    """Model representing comments associated with images."""
     image = models.ForeignKey(Image, on_delete=models.CASCADE, related_name='img_comment')
     created = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -58,6 +66,7 @@ class ImageComment(models.Model):
 
 
 class Group(models.Model):
+    """Model representing a group with its associated attributes."""
     name = models.CharField(max_length=128, unique=True)
     admin = models.ForeignKey(User, on_delete=models.CASCADE, related_name='admin_groups')
     created = models.DateTimeField(auto_now_add=True)
@@ -69,11 +78,13 @@ class Group(models.Model):
         return self.name
 
     def save(self):
+        """Method to save the admin as a member of the group they own."""
         super().save()
         self.members.add(self.admin)
 
     # function for admin of group
     def accept_pending_user(self, user):
+        """Method for Admin Control Over Pending Users"""
         if user in self.pending_users.all():
             # adding user to member_groups
             self.members.add(user)
@@ -81,7 +92,7 @@ class Group(models.Model):
             self.pending_users.remove(user)
 
     def reject_pending_user(self, user):
+        """Method for Admin Control to Reject Pending Users"""
         if user in self.pending_users.all():
             # remove user from pending_groups
             self.pending_users.remove(user)
-

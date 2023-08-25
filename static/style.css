@@ -1,15 +1,12 @@
-/* Resetowanie podstawowych styli */
 body, h1, h2, h3, p {
     margin: 3px;
     padding: 0;
 }
 
-/* Globalne style */
 body {
     font-family: Arial, sans-serif;
 }
 
-/* Header */
 header {
     background-color: #333;
     color: white;
@@ -17,11 +14,11 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Cień */
-    position: fixed; /* Ustala pozycję */
-    top: 0; /* Na górze ekranu */
-    left: 0; /* Od lewej krawędzi */
-    width: 100%; /* Szerokość pełna */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
 }
 
 .logo {
@@ -39,7 +36,6 @@ header {
     font-weight: bold;
 }
 
-
 .user-info {
     text-align: right;
     margin-right: 30px;
@@ -56,21 +52,20 @@ header {
     text-decoration: none;
 }
 .separator {
-    margin: 0 5px; /* Dodany margines między separatorami */
-    color: #ccc; /* Kolor separatora */
+    margin: 0 5px;
+    color: #ccc;
 }
 
-/* Footer */
 footer {
     background-color: #333;
     color: #ccc;
     text-align: center;
     border: #000 solid 1px;
     padding: 10px;
-    position: fixed; /* Ustala pozycję */
-    left: 0; /* Od lewej krawędzi */
-    bottom: 0; /* Na dole ekranu */
-    width: 100%; /* Szerokość pełna */
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }
 body {
     background-color: #222;
@@ -84,25 +79,23 @@ body {
     max-width: 80%;
     margin: 50px auto 50px;
     padding: 20px;
-
 }
 
-/* Content */
 .content {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh; /* Minimalna wysokość na całą wysokość okna przeglądarki */
+    min-height: 100vh;
 }
 
 .image-list {
     margin-top: 20px;
-    background-color: #333; /* Kolor tła */
-    border: 1px solid #555; /* Obramowanie */
-    border-radius: 5px; /* Zaokrąglenie rogów */
-    padding: 10px; /* Wewnętrzny odstęp */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Cień */
+    background-color: #333;
+    border: 1px solid #555;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 
 }
 
@@ -116,11 +109,11 @@ body {
     width: 150px;
     margin: 10px;
     text-align: center;
-    padding: 15px; /* Dodanie wewnętrznego odstępu */
-    background-color: #444; /* Kolor tła */
-    border: 1px solid #666; /* Obramowanie */
-    border-radius: 5px; /* Zaokrąglenie rogów */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Cień */
+    padding: 15px;
+    background-color: #444;
+    border: 1px solid #666;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .image-box img {
@@ -134,25 +127,25 @@ body {
 }
 
 .image-box a {
-    color: #ffc107; /* Żółty kolor */
-    text-decoration: none; /* Brak podkreślenia */
-    transition: color 0.3s ease-in-out; /* Płynne przejście koloru */
+    color: #ffc107;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
 }
 
 .image-box a:hover {
-    color: #ff9800; /* Inny kolor po najechaniu */
+    color: #ff9800;
 }
 
 
 .image-layout {
     display: flex;
     margin: 20px 0;
-    align-items: flex-start; /* Wyśrodkowanie elementów do góry */
-    background-color: #333; /* Kolor tła */
-    border: 1px solid #555; /* Obramowanie */
-    border-radius: 5px; /* Zaokrąglenie rogów */
-    padding: 10px; /* Wewnętrzny odstęp */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Cień */
+    align-items: flex-start;
+    background-color: #333;
+    border: 1px solid #555;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .image-section {
@@ -169,29 +162,28 @@ body {
     display: flex;
     flex-direction: column;
     flex: 1;
-    padding-left: 20px; /* Dodatkowy padding z lewej strony */
+    padding-left: 20px;
 }
 
 .info-section {
     color: #ccc;
-    background-color: #333; /* Kolor tła */
-    border: 1px solid #555; /* Obramowanie */
-    border-radius: 5px; /* Zaokrąglenie rogów */
-    padding: 10px; /* Wewnętrzny odstęp */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Cień */
+    background-color: #333;
+    border: 1px solid #555;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 .info-section h2 {
     margin-top: 0;
 }
 .info-section a {
-    color: #ffc107; /* Żółty kolor */
-    text-decoration: none; /* Brak podkreślenia */
-    transition: color 0.3s ease-in-out; /* Płynne przejście koloru */
+    color: #ffc107;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
 }
 .info-section a:hover {
-    color: #ff9800; /* Inny kolor po najechaniu */
+    color: #ff9800;
 }
-
 
 .image-layout h2 {
     margin-top: 0;
@@ -199,38 +191,39 @@ body {
 
 .comment-section {
     padding: 20px;
-    background-color: #333; /* Kolor tła */
-    border: 1px solid #555; /* Obramowanie */
-    border-radius: 5px; /* Zaokrąglenie rogów */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Cień */
+    background-color: #333;
+    border: 1px solid #555;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
+
 .comment-section a {
-    color: #ffc107; /* Żółty kolor */
-    text-decoration: none; /* Brak podkreślenia */
-    transition: color 0.3s ease-in-out; /* Płynne przejście koloru */
+    color: #ffc107;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
 }
+
 .comment-section a:hover {
-    color: #ff9800; /* Inny kolor po najechaniu */
+    color: #ff9800;
 }
 
 .comment-box {
     margin-bottom: 10px;
     padding: 10px;
     border-radius: 5px;
-    background-color: #444; /* Kolor tła */
-    border: 1px solid #666; /* Obramowanie */
-    border-radius: 5px; /* Zaokrąglenie rogów */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Cień */
+    background-color: #444;
+    border: 1px solid #666;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 .comment-form p{
     margin-bottom: 10px;
     padding: 10px;
     border-radius: 5px;
-    background-color: #444; /* Kolor tła */
-    border: 1px solid #666; /* Obramowanie */
-    border-radius: 5px; /* Zaokrąglenie rogów */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Cień */
+    background-color: #444;
+    border: 1px solid #666;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
+
 .comment-form input,
 .info-section input {
     display: block;
@@ -247,7 +240,7 @@ body {
 
 .comment-form input:hover,
 .info-section input:hover {
-    background: #bf7f00; /* Zmiana koloru po najechaniu */
+    background: #bf7f00;
 }
 
 .comment-box ul {
@@ -255,6 +248,7 @@ body {
     padding: 0;
     margin: 0;
 }
+
 .comment-date {
     color: aquamarine;
 }
@@ -279,6 +273,7 @@ body {
     text-align: center;
     transition: color 0.3s ease-in-out;
 }
+
 .return-link:hover {
     background: #bf7f00;
 }
@@ -309,7 +304,7 @@ body {
 
 .left-section {
     flex: 1;
-    width: 65% !important; /* Zmieniona szerokość na 65% */
+    width: 65% !important;
     display: flex;
     flex-direction: column;
 }
@@ -320,8 +315,8 @@ body {
 
 .right-section {
     flex: 1;
-    width: 35% !important; /* Zmieniona szerokość na 35% */
-    padding-left: 20px; /* Odstęp od lewej strony */
+    width: 35% !important;
+    padding-left: 20px;
 }
 
 .lower-left {
@@ -330,8 +325,6 @@ body {
     flex-direction: column;
 }
 
-
-/* Ostylowanie formularza */
 .form {
     width: 400px;
     list-style: none;
@@ -367,7 +360,7 @@ body {
 .form input[type="email"]:focus,
 .form select:focus {
     outline: none;
-    border-color: #ffc107; /* Zmiana koloru obramowania po fokusie */
+    border-color: #ffc107;
 }
 
 .form select {
@@ -414,10 +407,12 @@ body {
     border: 1px solid #ccc;
     margin-right: 20px;
 }
+
 .main-container2 {
     display: flex;
     justify-content: space-between;
 }
+
 .create-group {
     width: 40%;
     padding: 20px;
@@ -466,18 +461,19 @@ body {
     width: 20%;
     margin: 10px;
     text-align: center;
-    padding: 15px; /* Dodanie wewnętrznego odstępu */
-    background-color: #444; /* Kolor tła */
-    border: 1px solid #666; /* Obramowanie */
-    border-radius: 5px; /* Zaokrąglenie rogów */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Cień */
+    padding: 15px;
+    background-color: #444;
+    border: 1px solid #666;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
+
 .user-name-button a {
-    color: #ffc107; /* Żółty kolor */
-    text-decoration: none; /* Brak podkreślenia */
-    transition: color 0.3s ease-in-out; /* Płynne przejście koloru */
+    color: #ffc107;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
 }
+
 .admin {
     background-color: #af6700;
 }
-/* Reszta stylizacji według potrzeb */
