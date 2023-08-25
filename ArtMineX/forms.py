@@ -5,21 +5,21 @@ from ArtMineX.models import Genre, Image, ImageComment, Group
 
 
 class GenreForm(forms.ModelForm):
-
+    """A form class for handling species genre."""
     class Meta:
         model = Genre
         fields = '__all__'
 
 
 class ImageForm(forms.ModelForm):
-
+    """A form class for handling images."""
     class Meta:
         model = Image
         fields = ['title', 'description', 'genre', 'image']
 
 
 class ImageCommentForm(forms.ModelForm):
-
+    """A form class for handling image comments"""
     class Meta:
         model = ImageComment
         fields = ['text']
@@ -27,7 +27,7 @@ class ImageCommentForm(forms.ModelForm):
 
 
 class GroupForm(forms.ModelForm):
-
+    """A form class to handle group"""
     class Meta:
         model = Group
         fields = ['name']

@@ -7,7 +7,10 @@ from ArtMineX.models import Image, Genre, Group
 
 
 class AddImageFormView(LoginRequiredMixin,View):
-
+    """Class-based view that allows logged-in users to add images.
+    This view requires users to be logged in
+    and presents a form for uploading images,
+    enforcing the login requirement before accessing the form."""
     def get(self, request):
         form_image = ImageForm()
         logged_user = User.objects.get(pk=request.user.id)
@@ -38,6 +41,9 @@ class AddImageFormView(LoginRequiredMixin,View):
         return render(request, 'forms.html', {'form': form_image})
 
 class AddGenreFormView(LoginRequiredMixin, View):
+    """Class-based view for adding genres by logged-in users.
+    This view enforces the login requirement
+    and provides a form for users to add new genres to the system."""
     def get(self, request):
         genre_list = Genre.objects.all()
         form_genre = GenreForm()
