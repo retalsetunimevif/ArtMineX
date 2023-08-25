@@ -13,7 +13,8 @@ from ArtMineX.models import Image
 
 
 class LoginFormView(View):
-
+    """View class for handling user login.
+    This view displays the login form and processes user login attempts."""
     def get(self, request):
         login_form = LoginForm()
         return render(request, 'forms.html', {'form': login_form})
@@ -32,12 +33,16 @@ class LoginFormView(View):
 
 
 class AddUserFormView(View):
+    """View class for user registration.
+    Displays the user registration form
+    and handles the creation of new user accounts."""
     def get(self,request):
         if not request.user.is_authenticated:
             user = AddUserForm()
             users = User.objects.order_by('-date_joined')[:3]
             return render(request, 'forms.html', {'form': user, 'list': users})
         return redirect('start')
+
     def post(self, request):
         user = AddUserForm(request.POST)
         if user.is_valid():
@@ -51,14 +56,18 @@ class AddUserFormView(View):
 
 
 class LogoutView(View):
-
+    """View class to handle user logout. When accessed,
+    it logs out the currently authenticated user
+    and redirects them to the start page."""
     def get(self, request):
         logout(request)
         return redirect('start')
 
 
 class UserProfileView(View):
-
+    """View class to display user profiles.
+    Handles displaying the profile of a specific user.
+    If the user is the profile owner, an 'Edit' option is shown."""
     def get(self, request, username):
         try:
             username = User.objects.get(username=username)

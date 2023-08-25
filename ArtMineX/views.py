@@ -7,14 +7,18 @@ from ArtMineX.models import Image, ImageComment, Like, Group
 
 
 def get_images(model, order, count=7):
+    """Function to retrieve a specified number of objects
+    from a given model and order them according to the specified field."""
     return model.objects.order_by(order)[:count]
 
 
 # Create your views here.
 class Start(View):
-
+    """Class-based view for the 'start' page.
+    Retrieves the latest images and top-rated images
+    using the 'get_images' function
+    and renders them on the template."""
     def get(self, request):
-        # images = Image.objects.order_by('-created')[:10]
         last_images = get_images(Image, '-created')
         top_of_the_top = get_images(Image, '-like')
         return render(request, 'start.html',
@@ -22,14 +26,9 @@ class Start(View):
                        'top_of_the_top': [top_of_the_top, 'top of the top']})
 
 
-class LastGenreImagesView(View):
-
-    def get(self, request):
-        images = Image.objects.order_by('genre')
-
-
 class ImageView(View):
-
+    """Class-based view to display detailed information about a specific image.
+    Handles rendering image details and comments."""
     def get(self, request, slug):
         image = Image.objects.get(slug=slug)
         access = {'like': True}
@@ -41,9 +40,9 @@ class ImageView(View):
             pass
         comments = ImageComment.objects.filter(image=image).order_by('-created')
         form_comments = ImageCommentForm()
-        ctx = {'image': image, 'comments': comments,'form': form_comments,}
+        ctx = {'image': image, 'comments': comments, 'form': form_comments}
         ctx.update(access)
-        return render(request, 'open_image.html',context=ctx)
+        return render(request, 'open_image.html', context=ctx)
 
     def post(self, request, slug):
         user = User.objects.get(username=request.user)
@@ -68,12 +67,17 @@ class ImageView(View):
 
 
 class GalleryView(View):
+    """Class-based view to display a gallery of images.
+    Retrieves and displays a collection of images,
+    allowing users to browse through them."""
     def get(self, request):
         all_images = Image.objects.order_by('-created')
         return render(request, 'gallery.html', {'all_images': [all_images, 'All images']})
 
 
 class GroupsFormView(View):
+    """A class-based view for creating groups.
+    Displays available groups and a form for creating new groups."""
     def get(self, request):
         #form for createing group only for logged users
         form_group = GroupForm()
@@ -97,6 +101,10 @@ class GroupsFormView(View):
 
 
 class GroupView(View):
+    """Class-based view for handling user groups.
+    This view provides functionality to display group details,
+    manage membership and handle actions such as joining,
+    accepting and rejecting pending users."""
 
     def get(self, request, group_name):
         group = Group.objects.get(name=group_name)
@@ -127,6 +135,9 @@ class GroupView(View):
         return redirect('group', group_name=group_name)
 
 class PageDoesNotExist(View):
+    """Class-based view for handling page not found errors.
+    This view displays a custom page when the requested page does not exist,
+    providing a user-friendly error message."""
     def get(self, request):
         return render(request, '404.html',
                       {'message': 'This page does not exist'})
