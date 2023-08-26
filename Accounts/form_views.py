@@ -20,6 +20,8 @@ from Accounts.forms import UpdateUserAccountForm
 
 
 class UpdateUserAccountFormView(LoginRequiredMixin, UpdateView):
+    """View class that extends UpdateView and requires login,
+    used for updating user account information."""
     def get(self, request):
         user = request.user
         form = UpdateUserAccountForm(instance=user)
