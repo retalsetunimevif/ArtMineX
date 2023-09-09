@@ -22,18 +22,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-^b9#!w*vh(*lduk6$y+@6w-x@*i^38-@gfbee&7^i#rqdv66+l'
+SECRET_KEY = projectSettings.KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
-# CACHES = {
-#     'default': {
-#         'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
-#     }
-# }
 
 
 # Application definition
@@ -90,7 +84,7 @@ WSGI_APPLICATION = 'project_ArtMineX.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'artminex',
+        'NAME': projectSettings.DATABASE,
         'HOST': '127.0.0.1',
         'USER': projectSettings.USER,
         'PASSWORD': projectSettings.PASSWORD,
@@ -120,9 +114,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'pl-upl'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Warsaw'
 
 USE_I18N = True
 
