@@ -30,7 +30,7 @@ ArtMineX is a social platform for creators and art enthusiasts, allowing users t
     python manage.py migrate
     ```
 
-5. To set up the project, create a $${\color{red}"projectSettings.py"}$$ file in the project directory and add the following content:
+5. To set up the project, create a __"projectSettings.py"__ file in the project directory and add the following content:
     ```python
     # ProjectSettings.py
     KEY = ''  # Paste your secret key here.
@@ -40,7 +40,7 @@ ArtMineX is a social platform for creators and art enthusiasts, allowing users t
     ```
 
 6. For generating the secret key, follow these steps in the command-line or a Python shell:
-- $${\color{red}Import \space \color{blue}"get\_random\_secret\_key()"\space \color{red}from \space \color{blue}"django.core.management.utils"}$$.
+- Import __"get_random_secret_key()"__ from __"django.core.management.utils"__.
 - Run the following code to generate a new secret key:
 
     Example:
