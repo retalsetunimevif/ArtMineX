@@ -40,7 +40,7 @@ ArtMineX is a social platform for creators and art enthusiasts, allowing users t
     ```
 
 6. For generating the secret key, follow these steps in the command-line or a Python shell:
-- Import __"get_random_secret_key()"__ from __"django.core.management.utils"__.
+- Import ___"get_random_secret_key()"___ from ___"django.core.management.utils"___.
 - Run the following code to generate a new secret key:
 
     Example:
